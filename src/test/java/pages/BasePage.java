@@ -13,7 +13,7 @@ public class BasePage {
        this.driver = webDriver;
    }
 
-   public navigateToUrl(String url){
+   public  void navigateToUrl(String url){
        driver.navigate().to(url);
    }
 }
