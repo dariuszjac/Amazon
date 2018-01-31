@@ -1,21 +1,34 @@
 package tests;
+import Base.BaseUtli;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 
-public class BaseTest {
+public class BaseTest extends BaseUtli{
+
+    private BaseUtli base;
+
+    public BaseTest(BaseUtli base){
+        this.base = base;
+    }
 
 
-    @BeforeClass
+    @Before
     public static void initialization(){
         System.setProperty("webdriver.chrome.driver","/home/darek/SeleniumDrivers/chromedriver");
+        System.out.println("before");
+        Driver = new ChromeDriver();
+
     }
 
-    @AfterClass
-    public static void close(){
-        if ()
+    @After
+    public static void close() {
+        System.out.println("after");
+        if (Driver != null) {
+            Driver.close();
+            Driver.quit();
+        }
     }
-
-
-
 }
