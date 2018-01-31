@@ -12,6 +12,9 @@ public class DetailsPage extends BasePage{
     @FindBy(how = How.ID, using = "productTitle")
     public WebElement productTitle;
 
+    @FindBy(how = How.ID, using = "priceblock_ourprice")
+    public WebElement productPrice;
+
     @FindBy(how = How.ID, using = "add-to-cart-button")//*[@id="add-to-cart-button"]
     public WebElement ADD_TO_CART;
 
@@ -21,7 +24,7 @@ public class DetailsPage extends BasePage{
     @FindBy(how = How.ID, using = "siNoCoverage-announce")
     public WebElement NO_THANKS;
 
-    @FindBy(how = How.ID, using ="nav-cart-count")
+    @FindBy(how = How.XPATH, using ="//*[@id=\"hlb-view-cart-announce\"]")//*[@id="hlb-view-cart-announce"]
     public WebElement NAV_TO_CART;
 
     public DetailsPage(WebDriver driver) {
@@ -50,5 +53,13 @@ public class DetailsPage extends BasePage{
     }
     public void moveToCart(){
         moveToWebElement(NAV_TO_CART);
+    }
+
+    public String readName(){
+        return readText(productTitle);
+    }
+
+    public String readPrice(){
+        return readText(productPrice);
     }
 }

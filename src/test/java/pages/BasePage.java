@@ -18,7 +18,7 @@ public class BasePage {
 
    public BasePage(WebDriver webDriver){
        this.driver = webDriver;
-       wait = new WebDriverWait(webDriver, 100);
+       wait = new WebDriverWait(webDriver, 20);
        actions = new Actions(webDriver);
 
    }
@@ -37,10 +37,13 @@ public class BasePage {
        actions.moveToElement(element).perform();
    }
 
+   public String readText(WebElement element){
+       return element.getText();
+   }
+
    public void clickToNthElement(By select, int n){
        List <WebElement> products =  driver.findElements(select);
        WebElement product = products.get(n-1);
        wait.until(ExpectedConditions.elementToBeClickable(product));
-       product.click();
-    }
+       product.click(); }
 }

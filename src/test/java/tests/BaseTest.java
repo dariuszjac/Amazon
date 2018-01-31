@@ -22,10 +22,6 @@ public class BaseTest extends BaseUtli{
         System.setProperty("webdriver.chrome.driver","/home/darek/SeleniumDrivers/chromedriver");
         System.out.println("before");
         Driver = new ChromeDriver();
-        AmazonHomePage AhomePage = new AmazonHomePage(Driver);
-        CamerasPages CPage = new CamerasPages(Driver);
-        Actions actions = new Actions(Driver);
-
     }
 
     @After

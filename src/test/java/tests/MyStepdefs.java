@@ -1,21 +1,13 @@
 package tests;
 
 import Base.BaseUtli;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.AmazonHomePage;
 import pages.CamerasPages;
 import pages.DetailsPage;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class MyStepdefs extends BaseUtli{
 
@@ -52,14 +44,16 @@ public class MyStepdefs extends BaseUtli{
 
     @Then("^Check that correct product was added and subtotal price is correct$")
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
-        System.out.println(Driver.getTitle().toString());
-       // detailsPage.moveToCart();
-       // detailsPage.clickToCart();
+        System.out.println(Driver.getTitle());
+        detailsPage.moveToCart();
+        detailsPage.clickToCart();
     }
 
     @And("^Add (\\d+) pieces to the cart$")
     public void addPiecesToTheCart(int arg0) throws Throwable {
-        System.out.println("and");
+        System.out.println("fsfds");
+        System.out.println(detailsPage.readName());
+        System.out.println(detailsPage.readPrice().replaceAll("[^\\d.]+", ""));
         detailsPage.moveToAddToCart();
         detailsPage.clickAddCart();
         detailsPage.doNotAcceptOptions();
