@@ -38,41 +38,20 @@ public class MyStepdefs extends BaseUtli{
     @And("^Go into Best sellers in Digital Cameras$")
     public void goIntoBestSellersInDigitalCameras() throws Throwable {
          //Write code here that turns the phrase above into concrete actions
-        System.out.println("and");
+
         AmazonHomePage AhomePage = new AmazonHomePage(Driver);
         CamerasPages CPage = new CamerasPages(Driver);
         Actions actions = new Actions(Driver);
-        System.out.println("1");;
-        //AhomePage.actions.moveToElement(AhomePage.departments);
-
 
         AhomePage.goToDepartments();
         AhomePage.goToEcelctronicsComputersOffice();
         AhomePage.gotoCamerasPhotosVideos();
         AhomePage.clickOnCamerasPhotosVideos();
-        //actions.moveToElement(AhomePage.departments);
 
-        //TimeUnit.SECONDS.sleep(1);
-        //System.out.println("2");
-        //actions.moveToElement(AhomePage.EcelctronicsComputersOffice).perform();
-        //TimeUnit.SECONDS.sleep(2);
-        //System.out.println("3");
-        //actions.moveToElement(AhomePage.CamerasPhotosVideos).perform();
-        //AhomePage.clickOnElement(AhomePage.CamerasPhotosVideos);
-        //AhomePage.wait.until(ExpectedConditions.elementToBeClickable(AhomePage.CamerasPhotosVideos));
-        //actions.click().perform();
-        //TimeUnit.SECONDS.sleep(1);
-
-        actions.moveToElement(CPage.BestSellers).perform();
-        CPage.wait.until(ExpectedConditions.elementToBeClickable(CPage.BestSellers));
-
-        actions.click().perform();
-        //TimeUnit.SECONDS.sleep(2);
-
-        actions.moveToElement(CPage.DigitalCameras).perform();
-        CPage.wait.until(ExpectedConditions.elementToBeClickable(CPage.DigitalCameras));
-        actions.click().perform();
-        TimeUnit.SECONDS.sleep(5);
+        CPage.goToBestSellers();
+        CPage.clickBestSellers();
+        CPage.goToDigitalCameras();
+        CPage.clicOnDigitalCameras();
 
         System.out.println("dfadfdsaffdsafds");
     }
