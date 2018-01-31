@@ -12,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.AmazonHomePage;
 import pages.CamerasPages;
+import pages.DetailsPage;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -23,6 +24,7 @@ public class MyStepdefs extends BaseUtli{
     AmazonHomePage AhomePage = new AmazonHomePage(Driver);
     CamerasPages CPage = new CamerasPages(Driver);
     Actions actions = new Actions(Driver);
+    DetailsPage detailsPage = new DetailsPage(Driver);
 
     public MyStepdefs(BaseUtli base){
         this.base = base;
@@ -30,9 +32,7 @@ public class MyStepdefs extends BaseUtli{
 
     @Given("^Navigate to the Amazon$")
     public void navigateToTheAmazon() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-       // System.setProperty("webdriver.chrome.driver","/home/darek/SeleniumDrivers/chromedriver");
-        //WebDriver driver = new ChromeDriver();
+
         System.out.println("given");
         String baseUrl = "http://amazon.com";
         Driver.navigate().to(baseUrl);
@@ -41,11 +41,6 @@ public class MyStepdefs extends BaseUtli{
 
     @And("^Go into Best sellers in Digital Cameras$")
     public void goIntoBestSellersInDigitalCameras() throws Throwable {
-         //Write code here that turns the phrase above into concrete actions
-
-        //AmazonHomePage AhomePage = new AmazonHomePage(Driver);
-        //CamerasPages CPage = new CamerasPages(Driver);
-        //Actions actions = new Actions(Driver);
 
         AhomePage.goToDepartments();
         AhomePage.goToEcelctronicsComputersOffice();
@@ -61,32 +56,30 @@ public class MyStepdefs extends BaseUtli{
 
     @Then("^Check that correct product was added and subtotal price is correct$")
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("then");
+
         System.out.println(Driver.getTitle().toString());
-        //Assert.assertEquals(1, 1);
+
     }
-
-
 
     @And("^Add (\\d+) pieces to the cart$")
     public void addPiecesToTheCart(int arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        System.out.println("and");
-    }
 
+        System.out.println("and");
+
+    }
 
     @And("^Open details of (\\d+)-th product product$")
     public void openDetailsOfThProductProduct(int arg0) throws Throwable {
+
+
         CPage.clickToNthCamera(arg0);
-        // Write code here that turns the phrase above into concrete actions
-        //List <WebElement> products = Driver.findElements(By.className("zg_itemImmersion"));
-        //System.out.println(products.size());
-       // WebElement product = products.get(arg0-1);
-        //WebElement title = product.findElement(By.cssSelector(".p13n-sc-truncated-hyphen.p13n-sc-truncated"));
-        //WebElement price = product.findElement(By.className("p13n-sc-price"));
-        //System.out.println("Title" + title.getAttribute("title"));
-        //System.out.println("Getting the price of the entity= + " + price.getText());
+        detailsPage.moveToAddToCart();
+        detailsPage.clickAddCart();
+        TimeUnit.SECONDS.sleep(3);
+        detailsPage.moveToDoNotAccept();
+        detailsPage.doNotAcceptOptions();
+
+        TimeUnit.SECONDS.sleep(8);
 
     }
 }
