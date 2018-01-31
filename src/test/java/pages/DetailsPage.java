@@ -21,12 +21,21 @@ public class DetailsPage extends BasePage{
     @FindBy(how = How.ID, using = "siNoCoverage-announce")
     public WebElement NO_THANKS;
 
+    @FindBy(how = How.ID,using ="nav-cart-count")
+    public WebElement NAV_TO_CART;
+
     public DetailsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
     public void doNotAcceptOptions(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         clickOnElement(NO_THANKS);
     }
 
@@ -40,5 +49,9 @@ public class DetailsPage extends BasePage{
 
     public void moveToAddToCart(){
         moveToElement(ADD_TO_CART);
+    }
+
+    public void moveToCart(){
+        clickOnElement(NAV_TO_CART);
     }
 }

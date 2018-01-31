@@ -44,7 +44,7 @@ public class MyStepdefs extends BaseUtli{
         AhomePage.gotoCamerasPhotosVideos();
         AhomePage.clickOnCamerasPhotosVideos();
 
-        CPage.goToBestSellers();
+        //CPage.goToBestSellers();
         CPage.clickBestSellers();
         CPage.goToDigitalCameras();
         CPage.clicOnDigitalCameras();
@@ -53,23 +53,21 @@ public class MyStepdefs extends BaseUtli{
     @Then("^Check that correct product was added and subtotal price is correct$")
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
         System.out.println(Driver.getTitle().toString());
+        detailsPage.moveToCart();
+        TimeUnit.SECONDS.sleep(7);
+
 
     }
 
     @And("^Add (\\d+) pieces to the cart$")
     public void addPiecesToTheCart(int arg0) throws Throwable {
         System.out.println("and");
+        detailsPage.clickAddCart();
+        detailsPage.doNotAcceptOptions();
     }
 
     @And("^Open details of (\\d+)-th product product$")
     public void openDetailsOfThProductProduct(int arg0) throws Throwable {
         CPage.clickToNthCamera(arg0);
-        detailsPage.moveToAddToCart();
-        detailsPage.clickAddCart();
-        TimeUnit.SECONDS.sleep(3);
-
-        detailsPage.moveToDoNotAccept();
-        detailsPage.doNotAcceptOptions();
-        TimeUnit.SECONDS.sleep(8);
     }
 }
