@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.AmazonHomePage;
 import pages.CamerasPages;
 
@@ -41,23 +42,35 @@ public class MyStepdefs extends BaseUtli{
         AmazonHomePage AhomePage = new AmazonHomePage(Driver);
         CamerasPages CPage = new CamerasPages(Driver);
         Actions actions = new Actions(Driver);
+        System.out.println("1");;
+        //AhomePage.actions.moveToElement(AhomePage.departments);
 
-        System.out.println(AhomePage.departments.getText());
-        actions.moveToElement(AhomePage.departments).perform();
-        TimeUnit.SECONDS.sleep(1);
 
-        actions.moveToElement(AhomePage.EcelctronicsComputersOffice).perform();
-        TimeUnit.SECONDS.sleep(2);
+        AhomePage.goToDepartments();
+        AhomePage.goToEcelctronicsComputersOffice();
+        AhomePage.gotoCamerasPhotosVideos();
+        AhomePage.clickOnCamerasPhotosVideos();
+        //actions.moveToElement(AhomePage.departments);
 
-        actions.moveToElement(AhomePage.CamerasPhotosVideos).perform();
-        actions.click().perform();
-        TimeUnit.SECONDS.sleep(1);
+        //TimeUnit.SECONDS.sleep(1);
+        //System.out.println("2");
+        //actions.moveToElement(AhomePage.EcelctronicsComputersOffice).perform();
+        //TimeUnit.SECONDS.sleep(2);
+        //System.out.println("3");
+        //actions.moveToElement(AhomePage.CamerasPhotosVideos).perform();
+        //AhomePage.clickOnElement(AhomePage.CamerasPhotosVideos);
+        //AhomePage.wait.until(ExpectedConditions.elementToBeClickable(AhomePage.CamerasPhotosVideos));
+        //actions.click().perform();
+        //TimeUnit.SECONDS.sleep(1);
 
         actions.moveToElement(CPage.BestSellers).perform();
+        CPage.wait.until(ExpectedConditions.elementToBeClickable(CPage.BestSellers));
+
         actions.click().perform();
-        TimeUnit.SECONDS.sleep(2);
+        //TimeUnit.SECONDS.sleep(2);
 
         actions.moveToElement(CPage.DigitalCameras).perform();
+        CPage.wait.until(ExpectedConditions.elementToBeClickable(CPage.DigitalCameras));
         actions.click().perform();
         TimeUnit.SECONDS.sleep(5);
 
