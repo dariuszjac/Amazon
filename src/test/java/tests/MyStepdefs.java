@@ -54,9 +54,7 @@ public class MyStepdefs extends BaseUtli{
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
         System.out.println(Driver.getTitle().toString());
         detailsPage.moveToCart();
-        TimeUnit.SECONDS.sleep(7);
-
-
+        detailsPage.clickToCart();
     }
 
     @And("^Add (\\d+) pieces to the cart$")
@@ -64,6 +62,7 @@ public class MyStepdefs extends BaseUtli{
         System.out.println("and");
         detailsPage.clickAddCart();
         detailsPage.doNotAcceptOptions();
+        //detailsPage.moveToCart();
     }
 
     @And("^Open details of (\\d+)-th product product$")

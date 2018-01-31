@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DetailsPage extends BasePage{
 
@@ -30,12 +31,6 @@ public class DetailsPage extends BasePage{
     }
 
     public void doNotAcceptOptions(){
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         clickOnElement(NO_THANKS);
     }
 
@@ -51,7 +46,10 @@ public class DetailsPage extends BasePage{
         moveToElement(ADD_TO_CART);
     }
 
-    public void moveToCart(){
+    public void clickToCart(){
         clickOnElement(NAV_TO_CART);
+    }
+    public void moveToCart(){
+        moveToElement(NAV_TO_CART);
     }
 }

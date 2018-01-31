@@ -29,11 +29,12 @@ public class BasePage {
 
    public void clickOnElement(WebElement element){
        wait.until(ExpectedConditions.elementToBeClickable(element));
+       //wait.until(ExpectedConditions.visibilityOf(element));
        element.click();
    }
 
    public void moveToElement(WebElement element) {
-       actions.moveToElement(element).perform();
+       actions.moveToElement(element);
    }
 
    public void clickToNthElement(By select, int n){
