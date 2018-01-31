@@ -13,33 +13,32 @@ public class DetailsPage extends BasePage{
     public WebElement productTitle;
 
     @FindBy(how = How.ID, using = "add-to-cart-button")
-    public WebElement addToCart;
+    public WebElement ADD_TO_CART;
 
     @FindBy(how = How.ID, using = "quantity")
     public WebElement quantity;
 
     @FindBy(how = How.ID, using = "siNoCoverage-announce")
-    public WebElement noThanks;
-
+    public WebElement NO_THANKS;
 
     public DetailsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public void doNotAcceptOptions() {
-        clickOnElement(noThanks);
+    public void doNotAcceptOptions(){
+        clickOnElement(NO_THANKS);
     }
 
     public void moveToDoNotAccept(){
-        moveToElement(noThanks);
+        moveToElement(NO_THANKS);
     }
-    public void clickAddCart() {
-        clickOnElement(addToCart);
+
+    public void clickAddCart(){
+        clickOnElement(ADD_TO_CART);
     }
+
     public void moveToAddToCart(){
-        moveToElement(addToCart);
+        moveToElement(ADD_TO_CART);
     }
-
-
 }

@@ -35,12 +35,11 @@ public class BasePage {
    public void moveToElement(WebElement element) {
        actions.moveToElement(element).perform();
    }
-   public void clickToNthElement(By select, int n){
 
+   public void clickToNthElement(By select, int n){
        List <WebElement> products =  driver.findElements(select);
        WebElement product = products.get(n-1);
        wait.until(ExpectedConditions.elementToBeClickable(product));
        product.click();
-
     }
 }

@@ -17,7 +17,6 @@ public class BaseTest extends BaseUtli{
         this.base = base;
     }
 
-
     @Before
     public static void initialization(){
         System.setProperty("webdriver.chrome.driver","/home/darek/SeleniumDrivers/chromedriver");

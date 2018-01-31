@@ -6,43 +6,39 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CamerasPages extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"nav-subnav\"]/a[3]/span[1]" )
-    public WebElement BestSellers;
+    public WebElement BEST_SELLERS;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"zg_browseRoot\"]/ul/ul/ul/li[4]/a" )
-    public WebElement DigitalCameras;
+    public WebElement DIGITAL_CAMERAS;
 
     private final By CAMERA_SELECTOR = By.cssSelector("#zg_centerListWrapper .zg_itemImmersion");
 
-
     public void goToBestSellers(){
-        moveToElement(BestSellers);
+        moveToElement(BEST_SELLERS);
     }
 
     public void clickBestSellers(){
-        clickOnElement(BestSellers);
+        clickOnElement(BEST_SELLERS);
     }
 
     public void goToDigitalCameras(){
-        moveToElement(DigitalCameras);
+        moveToElement(DIGITAL_CAMERAS);
     }
 
     public void clicOnDigitalCameras(){
-        clickOnElement(DigitalCameras);
+        clickOnElement(DIGITAL_CAMERAS);
     }
 
     public CamerasPages(WebDriver webDriver) {
         super(webDriver);
         PageFactory.initElements(webDriver, this);
-
     }
 
     public void clickToNthCamera(int x){
         clickToNthElement(CAMERA_SELECTOR,x);
     }
-
 }

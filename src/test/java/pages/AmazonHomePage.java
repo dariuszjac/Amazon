@@ -5,36 +5,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AmazonHomePage extends BasePage{
 
     @FindBy(how = How.ID, using = "nav-link-shopall")
-    public WebElement departments;
+    public WebElement DEPARTMENTS;
 
     @FindBy(how = How.CSS, using = "span[data-nav-panelkey='ElectronicsComputersPanel']")
-    public WebElement EcelctronicsComputersOffice;
-
+    public WebElement ELECTRONICT_COMPUTERS_OFFICE;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"nav-flyout-shopAll\"]/div[3]/div[10]/div[1]/div/a[3]" )
-    public WebElement CamerasPhotosVideos;
+    public WebElement CAMERAS_PHOTOS_VIDEOS;
 
     public void goToDepartments(){
-        moveToElement(departments);
+        moveToElement(DEPARTMENTS);
     }
 
     public void goToEcelctronicsComputersOffice(){
-        moveToElement(EcelctronicsComputersOffice);
+        moveToElement(ELECTRONICT_COMPUTERS_OFFICE);
     }
 
     public void gotoCamerasPhotosVideos(){
-        moveToElement(CamerasPhotosVideos);
+        moveToElement(CAMERAS_PHOTOS_VIDEOS);
     }
     public void clickOnCamerasPhotosVideos(){
-        clickOnElement(CamerasPhotosVideos);
+        clickOnElement(CAMERAS_PHOTOS_VIDEOS);
     }
-
-
 
     public AmazonHomePage(WebDriver driver) {
         super(driver);

@@ -32,16 +32,13 @@ public class MyStepdefs extends BaseUtli{
 
     @Given("^Navigate to the Amazon$")
     public void navigateToTheAmazon() throws Throwable {
-
         System.out.println("given");
         String baseUrl = "http://amazon.com";
         Driver.navigate().to(baseUrl);
-
     }
 
     @And("^Go into Best sellers in Digital Cameras$")
     public void goIntoBestSellersInDigitalCameras() throws Throwable {
-
         AhomePage.goToDepartments();
         AhomePage.goToEcelctronicsComputersOffice();
         AhomePage.gotoCamerasPhotosVideos();
@@ -51,35 +48,28 @@ public class MyStepdefs extends BaseUtli{
         CPage.clickBestSellers();
         CPage.goToDigitalCameras();
         CPage.clicOnDigitalCameras();
-
     }
 
     @Then("^Check that correct product was added and subtotal price is correct$")
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
-
         System.out.println(Driver.getTitle().toString());
 
     }
 
     @And("^Add (\\d+) pieces to the cart$")
     public void addPiecesToTheCart(int arg0) throws Throwable {
-
         System.out.println("and");
-
     }
 
     @And("^Open details of (\\d+)-th product product$")
     public void openDetailsOfThProductProduct(int arg0) throws Throwable {
-
-
         CPage.clickToNthCamera(arg0);
         detailsPage.moveToAddToCart();
         detailsPage.clickAddCart();
         TimeUnit.SECONDS.sleep(3);
+
         detailsPage.moveToDoNotAccept();
         detailsPage.doNotAcceptOptions();
-
         TimeUnit.SECONDS.sleep(8);
-
     }
 }
