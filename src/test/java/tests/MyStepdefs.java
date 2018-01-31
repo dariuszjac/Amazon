@@ -53,13 +53,14 @@ public class MyStepdefs extends BaseUtli{
     @Then("^Check that correct product was added and subtotal price is correct$")
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
         System.out.println(Driver.getTitle().toString());
-        detailsPage.moveToCart();
-        detailsPage.clickToCart();
+       // detailsPage.moveToCart();
+       // detailsPage.clickToCart();
     }
 
     @And("^Add (\\d+) pieces to the cart$")
     public void addPiecesToTheCart(int arg0) throws Throwable {
         System.out.println("and");
+        detailsPage.moveToAddToCart();
         detailsPage.clickAddCart();
         detailsPage.doNotAcceptOptions();
         //detailsPage.moveToCart();

@@ -18,15 +18,15 @@ public class AmazonHomePage extends BasePage{
     public WebElement CAMERAS_PHOTOS_VIDEOS;
 
     public void goToDepartments(){
-        moveToElement(DEPARTMENTS);
+        moveToWebElement(DEPARTMENTS);
     }
 
     public void goToEcelctronicsComputersOffice(){
-        moveToElement(ELECTRONICT_COMPUTERS_OFFICE);
+        moveToWebElement(ELECTRONICT_COMPUTERS_OFFICE);
     }
 
     public void gotoCamerasPhotosVideos(){
-        moveToElement(CAMERAS_PHOTOS_VIDEOS);
+        moveToWebElement(CAMERAS_PHOTOS_VIDEOS);
     }
     public void clickOnCamerasPhotosVideos(){
         clickOnElement(CAMERAS_PHOTOS_VIDEOS);

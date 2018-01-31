@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DetailsPage extends BasePage{
 
@@ -13,7 +12,7 @@ public class DetailsPage extends BasePage{
     @FindBy(how = How.ID, using = "productTitle")
     public WebElement productTitle;
 
-    @FindBy(how = How.ID, using = "add-to-cart-button")
+    @FindBy(how = How.ID, using = "add-to-cart-button")//*[@id="add-to-cart-button"]
     public WebElement ADD_TO_CART;
 
     @FindBy(how = How.ID, using = "quantity")
@@ -22,7 +21,7 @@ public class DetailsPage extends BasePage{
     @FindBy(how = How.ID, using = "siNoCoverage-announce")
     public WebElement NO_THANKS;
 
-    @FindBy(how = How.ID,using ="nav-cart-count")
+    @FindBy(how = How.ID, using ="nav-cart-count")
     public WebElement NAV_TO_CART;
 
     public DetailsPage(WebDriver driver) {
@@ -35,7 +34,7 @@ public class DetailsPage extends BasePage{
     }
 
     public void moveToDoNotAccept(){
-        moveToElement(NO_THANKS);
+        moveToWebElement(NO_THANKS);
     }
 
     public void clickAddCart(){
@@ -43,13 +42,13 @@ public class DetailsPage extends BasePage{
     }
 
     public void moveToAddToCart(){
-        moveToElement(ADD_TO_CART);
+        moveToWebElement(ADD_TO_CART);
     }
 
     public void clickToCart(){
         clickOnElement(NAV_TO_CART);
     }
     public void moveToCart(){
-        moveToElement(NAV_TO_CART);
+        moveToWebElement(NAV_TO_CART);
     }
 }

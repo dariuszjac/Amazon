@@ -33,8 +33,8 @@ public class BasePage {
        element.click();
    }
 
-   public void moveToElement(WebElement element) {
-       actions.moveToElement(element);
+   public void moveToWebElement(WebElement element){
+       actions.moveToElement(element).perform();
    }
 
    public void clickToNthElement(By select, int n){

@@ -18,7 +18,7 @@ public class CamerasPages extends BasePage {
     private final By CAMERA_SELECTOR = By.cssSelector("#zg_centerListWrapper .zg_itemImmersion");
 
     public void goToBestSellers(){
-        moveToElement(BEST_SELLERS);
+        moveToWebElement(BEST_SELLERS);
     }
 
     public void clickBestSellers(){
@@ -26,7 +26,7 @@ public class CamerasPages extends BasePage {
     }
 
     public void goToDigitalCameras(){
-        moveToElement(DIGITAL_CAMERAS);
+        moveToWebElement(DIGITAL_CAMERAS);
     }
 
     public void clicOnDigitalCameras(){
