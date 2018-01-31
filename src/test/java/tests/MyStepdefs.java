@@ -6,12 +6,10 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import tests.BaseTest;
+import pages.AmazonHomePage;
+import pages.CamerasPages;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,23 +36,27 @@ public class MyStepdefs extends BaseUtli{
     public void goIntoBestSellersInDigitalCameras() throws Throwable {
          //Write code here that turns the phrase above into concrete actions
         System.out.println("and");
+        AmazonHomePage AhomePage = new AmazonHomePage(Driver);
+        CamerasPages CPage = new CamerasPages(Driver);
         Actions actions = new Actions(Driver);
-        WebElement x = Driver.findElement(By.id("nav-link-shopall"));
-        System.out.println(x.getText());
-        actions.moveToElement(x).perform();
+
+        System.out.println(AhomePage.departments.getText());
+        actions.moveToElement(AhomePage.departments).perform();
         TimeUnit.SECONDS.sleep(8);
 
-        WebElement y = Driver.findElement(By.cssSelector("span[data-nav-panelkey='ElectronicsComputersPanel']"));
-        System.out.println(y.getAttribute("aria-label"));
-        actions.moveToElement(y).perform();
+        actions.moveToElement(AhomePage.EcelctronicsComputersOffice).perform();
         TimeUnit.SECONDS.sleep(8);
 
-        WebElement v = Driver.findElement(By.xpath("//*[@id=\"nav-flyout-shopAll\"]/div[3]/div[10]/div[1]/div/a[3]"));
-        System.out.println(v.getText());
-        actions.moveToElement(v).perform();
+        actions.moveToElement(AhomePage.CamerasPhotosVideos).perform();
         actions.click().perform();
+        TimeUnit.SECONDS.sleep(9);
 
+        actions.moveToElement(CPage.BestSellers).perform();
+        actions.click().perform();
+        TimeUnit.SECONDS.sleep(9);
 
+        actions.moveToElement(CPage.DigitalCameras).perform();
+        actions.click().perform();
         TimeUnit.SECONDS.sleep(9);
 
         System.out.println("dfadfdsaffdsafds");
