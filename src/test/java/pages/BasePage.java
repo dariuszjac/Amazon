@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 
 public class BasePage {
 
@@ -30,7 +32,15 @@ public class BasePage {
        element.click();
    }
 
-   public void moveToElement(WebElement element){
+   public void moveToElement(WebElement element) {
        actions.moveToElement(element).perform();
    }
+   public void clickToNthElement(By select, int n){
+
+       List <WebElement> products =  driver.findElements(select);
+       WebElement product = products.get(n-1);
+       wait.until(ExpectedConditions.elementToBeClickable(product));
+       product.click();
+
+    }
 }

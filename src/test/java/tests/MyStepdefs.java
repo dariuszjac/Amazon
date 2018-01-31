@@ -20,6 +20,10 @@ public class MyStepdefs extends BaseUtli{
 
     private BaseUtli base;
 
+    AmazonHomePage AhomePage = new AmazonHomePage(Driver);
+    CamerasPages CPage = new CamerasPages(Driver);
+    Actions actions = new Actions(Driver);
+
     public MyStepdefs(BaseUtli base){
         this.base = base;
     }
@@ -39,9 +43,9 @@ public class MyStepdefs extends BaseUtli{
     public void goIntoBestSellersInDigitalCameras() throws Throwable {
          //Write code here that turns the phrase above into concrete actions
 
-        AmazonHomePage AhomePage = new AmazonHomePage(Driver);
-        CamerasPages CPage = new CamerasPages(Driver);
-        Actions actions = new Actions(Driver);
+        //AmazonHomePage AhomePage = new AmazonHomePage(Driver);
+        //CamerasPages CPage = new CamerasPages(Driver);
+        //Actions actions = new Actions(Driver);
 
         AhomePage.goToDepartments();
         AhomePage.goToEcelctronicsComputersOffice();
@@ -53,7 +57,6 @@ public class MyStepdefs extends BaseUtli{
         CPage.goToDigitalCameras();
         CPage.clicOnDigitalCameras();
 
-        System.out.println("dfadfdsaffdsafds");
     }
 
     @Then("^Check that correct product was added and subtotal price is correct$")
@@ -61,7 +64,7 @@ public class MyStepdefs extends BaseUtli{
         // Write code here that turns the phrase above into concrete actions
         System.out.println("then");
         System.out.println(Driver.getTitle().toString());
-        Assert.assertEquals(1, 1);
+        //Assert.assertEquals(1, 1);
     }
 
 
@@ -75,14 +78,15 @@ public class MyStepdefs extends BaseUtli{
 
     @And("^Open details of (\\d+)-th product product$")
     public void openDetailsOfThProductProduct(int arg0) throws Throwable {
+        CPage.clickToNthCamera(arg0);
         // Write code here that turns the phrase above into concrete actions
-        List <WebElement> products = Driver.findElements(By.className("zg_itemImmersion"));
-        System.out.println(products.size());
-        WebElement product = products.get(arg0-1);
-        WebElement title = product.findElement(By.cssSelector(".p13n-sc-truncated-hyphen.p13n-sc-truncated"));
-        WebElement price = product.findElement(By.className("p13n-sc-price"));
-        System.out.println("Title" + title.getAttribute("title"));
-        System.out.println("Getting the price of the entity= + " + price.getText());
+        //List <WebElement> products = Driver.findElements(By.className("zg_itemImmersion"));
+        //System.out.println(products.size());
+       // WebElement product = products.get(arg0-1);
+        //WebElement title = product.findElement(By.cssSelector(".p13n-sc-truncated-hyphen.p13n-sc-truncated"));
+        //WebElement price = product.findElement(By.className("p13n-sc-price"));
+        //System.out.println("Title" + title.getAttribute("title"));
+        //System.out.println("Getting the price of the entity= + " + price.getText());
 
     }
 }

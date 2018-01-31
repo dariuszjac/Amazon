@@ -4,6 +4,9 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import pages.AmazonHomePage;
+import pages.CamerasPages;
 
 
 public class BaseTest extends BaseUtli{
@@ -20,6 +23,9 @@ public class BaseTest extends BaseUtli{
         System.setProperty("webdriver.chrome.driver","/home/darek/SeleniumDrivers/chromedriver");
         System.out.println("before");
         Driver = new ChromeDriver();
+        AmazonHomePage AhomePage = new AmazonHomePage(Driver);
+        CamerasPages CPage = new CamerasPages(Driver);
+        Actions actions = new Actions(Driver);
 
     }
 
