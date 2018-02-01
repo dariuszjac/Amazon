@@ -5,13 +5,7 @@ import actions.Shopping;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.apache.http.util.Asserts;
-import org.junit.Assert;
-import org.junit.Assert.*;
-import org.junit.Test;
-import org.openqa.selenium.interactions.Actions;
-import pages.CartSummary;
-import pages.DetailsPage;
+
 
 public class MyStepdefs extends BaseUtli{
 
@@ -48,5 +42,6 @@ public class MyStepdefs extends BaseUtli{
     public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
         shopping.openCart();
         shopping.checkNameofProduct();
+        shopping.checkSubtotalPrice();
     }
 }
