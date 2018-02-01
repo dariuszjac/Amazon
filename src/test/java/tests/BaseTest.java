@@ -2,11 +2,8 @@ package tests;
 import Base.BaseUtli;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import pages.AmazonHomePage;
-import pages.CamerasPages;
+
 
 
 public class BaseTest extends BaseUtli{
@@ -20,13 +17,11 @@ public class BaseTest extends BaseUtli{
     @Before
     public static void initialization(){
         System.setProperty("webdriver.chrome.driver","/home/darek/SeleniumDrivers/chromedriver");
-        System.out.println("before");
         Driver = new ChromeDriver();
     }
 
     @After
-    public static void close() {
-        System.out.println("after");
+    public static void close(){
         if (Driver != null) {
             Driver.close();
             Driver.quit();

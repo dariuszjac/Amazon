@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -45,5 +46,11 @@ public class BasePage {
        List <WebElement> products =  driver.findElements(select);
        WebElement product = products.get(n-1);
        wait.until(ExpectedConditions.elementToBeClickable(product));
-       product.click(); }
+       product.click();
+   }
+    public String name(By select){
+        WebElement products =  driver.findElement(select);
+        wait.until(ExpectedConditions.elementToBeClickable(products));
+        return products.getText();
+   }
 }

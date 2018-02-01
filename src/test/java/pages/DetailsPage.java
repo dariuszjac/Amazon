@@ -3,8 +3,12 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class DetailsPage extends BasePage{
 
@@ -24,12 +28,18 @@ public class DetailsPage extends BasePage{
     @FindBy(how = How.ID, using = "siNoCoverage-announce")
     public WebElement NO_THANKS;
 
-    @FindBy(how = How.XPATH, using ="//*[@id=\"hlb-view-cart-announce\"]")//*[@id="hlb-view-cart-announce"]
+    @FindBy(how = How.ID, using ="hlb-view-cart-announce")//*[@id="hlb-view-cart-announce"]
     public WebElement NAV_TO_CART;
+
+    @FindBy(how= How.ID, using = "quantity")
+    public WebElement selectQuantity;
+
+    //public Select select;
 
     public DetailsPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+        //select = new Select(selectQuantity);
     }
 
     public void doNotAcceptOptions(){
@@ -41,7 +51,8 @@ public class DetailsPage extends BasePage{
     }
 
     public void clickAddCart(){
-        clickOnElement(ADD_TO_CART);
+        ADD_TO_CART.submit();
+        //clickOnElement(ADD_TO_CART);
     }
 
     public void moveToAddToCart(){
@@ -49,6 +60,7 @@ public class DetailsPage extends BasePage{
     }
 
     public void clickToCart(){
+        //NAV_TO_CART.submit();;
         clickOnElement(NAV_TO_CART);
     }
     public void moveToCart(){
@@ -59,7 +71,10 @@ public class DetailsPage extends BasePage{
         return readText(productTitle);
     }
 
-    public String readPrice(){
-        return readText(productPrice);
+    public double readPrice(){
+        Double price;
+        String a = readText(productPrice).replaceAll("[^\\d.]+", "");
+        price = Double.parseDouble(a);
+        return price;
     }
 }

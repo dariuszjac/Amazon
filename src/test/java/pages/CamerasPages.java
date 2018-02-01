@@ -10,10 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 public class CamerasPages extends BasePage {
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"nav-subnav\"]/a[3]/span[1]" )
-    public WebElement BEST_SELLERS;
+    private  WebElement BEST_SELLERS;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"zg_browseRoot\"]/ul/ul/ul/li[4]/a" )
-    public WebElement DIGITAL_CAMERAS;
+    private  WebElement DIGITAL_CAMERAS ;
 
     private final By CAMERA_SELECTOR = By.cssSelector("#zg_centerListWrapper .zg_itemImmersion");
 

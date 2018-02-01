@@ -9,31 +9,31 @@ import org.openqa.selenium.support.PageFactory;
 public class AmazonHomePage extends BasePage{
 
     @FindBy(how = How.ID, using = "nav-link-shopall")
-    public WebElement DEPARTMENTS;
+    private WebElement departments;
 
     @FindBy(how = How.CSS, using = "span[data-nav-panelkey='ElectronicsComputersPanel']")
-    public WebElement ELECTRONICT_COMPUTERS_OFFICE;
+    private WebElement electronictComputersOffice;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"nav-flyout-shopAll\"]/div[3]/div[10]/div[1]/div/a[3]" )
-    public WebElement CAMERAS_PHOTOS_VIDEOS;
-
-    public void goToDepartments(){
-        moveToWebElement(DEPARTMENTS);
-    }
-
-    public void goToEcelctronicsComputersOffice(){
-        moveToWebElement(ELECTRONICT_COMPUTERS_OFFICE);
-    }
-
-    public void gotoCamerasPhotosVideos(){
-        moveToWebElement(CAMERAS_PHOTOS_VIDEOS);
-    }
-    public void clickOnCamerasPhotosVideos(){
-        clickOnElement(CAMERAS_PHOTOS_VIDEOS);
-    }
+    private WebElement camerasPhotosVideos;
 
     public AmazonHomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
+    }
+
+    public void goToDepartments(){
+        moveToWebElement(departments);
+    }
+
+    public void goToEcelctronicsComputersOffice(){
+        moveToWebElement(electronictComputersOffice);
+    }
+
+    public void gotoCamerasPhotosVideos(){
+        moveToWebElement(camerasPhotosVideos);
+    }
+    public void clickOnCamerasPhotosVideos(){
+        clickOnElement(camerasPhotosVideos);
     }
 }

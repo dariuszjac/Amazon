@@ -1,12 +1,12 @@
 package Base;
 
-public class Product {
+public class Order {
 
-    String title;
-    double price;
+    private String title;
+    private double price;
+    private int quantity;
 
-
-    public Product() { }
+    public Order() { }
 
     public String getTitle() {
         return title;
@@ -22,5 +22,13 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

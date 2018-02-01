@@ -1,22 +1,22 @@
 package tests;
 
 import Base.BaseUtli;
+import actions.Shopping;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.apache.http.util.Asserts;
+import org.junit.Assert;
+import org.junit.Assert.*;
+import org.junit.Test;
 import org.openqa.selenium.interactions.Actions;
-import pages.AmazonHomePage;
-import pages.CamerasPages;
+import pages.CartSummary;
 import pages.DetailsPage;
 
 public class MyStepdefs extends BaseUtli{
 
     private BaseUtli base;
-
-    AmazonHomePage AhomePage = new AmazonHomePage(Driver);
-    CamerasPages CPage = new CamerasPages(Driver);
-    Actions actions = new Actions(Driver);
-    DetailsPage detailsPage = new DetailsPage(Driver);
+    Shopping shopping = new Shopping(Driver);
 
     public MyStepdefs(BaseUtli base){
         this.base = base;
@@ -24,44 +24,29 @@ public class MyStepdefs extends BaseUtli{
 
     @Given("^Navigate to the Amazon$")
     public void navigateToTheAmazon() throws Throwable {
-        System.out.println("given");
         String baseUrl = "http://amazon.com";
         Driver.navigate().to(baseUrl);
     }
 
     @And("^Go into Best sellers in Digital Cameras$")
     public void goIntoBestSellersInDigitalCameras() throws Throwable {
-        AhomePage.goToDepartments();
-        AhomePage.goToEcelctronicsComputersOffice();
-        AhomePage.gotoCamerasPhotosVideos();
-        AhomePage.clickOnCamerasPhotosVideos();
-
-        //CPage.goToBestSellers();
-        CPage.clickBestSellers();
-        CPage.goToDigitalCameras();
-        CPage.clicOnDigitalCameras();
-    }
-
-    @Then("^Check that correct product was added and subtotal price is correct$")
-    public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
-        System.out.println(Driver.getTitle());
-        detailsPage.moveToCart();
-        detailsPage.clickToCart();
-    }
-
-    @And("^Add (\\d+) pieces to the cart$")
-    public void addPiecesToTheCart(int arg0) throws Throwable {
-        System.out.println("fsfds");
-        System.out.println(detailsPage.readName());
-        System.out.println(detailsPage.readPrice().replaceAll("[^\\d.]+", ""));
-        detailsPage.moveToAddToCart();
-        detailsPage.clickAddCart();
-        detailsPage.doNotAcceptOptions();
-        //detailsPage.moveToCart();
+        shopping.goIntoBestSellerDigitalCameras();
     }
 
     @And("^Open details of (\\d+)-th product product$")
     public void openDetailsOfThProductProduct(int arg0) throws Throwable {
-        CPage.clickToNthCamera(arg0);
+        shopping.openDetailsOfNthCamera(arg0);
+    }
+
+    @And("^Add (\\d+) pieces to the cart$")
+    public void addPiecesToTheCart(int arg0) throws Throwable {
+        shopping.getProductInfo(arg0);
+        shopping.orderProducts(arg0);
+    }
+
+    @Then("^Check that correct product was added and subtotal price is correct$")
+    public void checkThatCorrectProductWasAddedAndSubtotalPriceIsCorrect() throws Throwable {
+        shopping.openCart();
+        shopping.checkNameofProduct();
     }
 }
